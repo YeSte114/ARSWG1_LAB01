@@ -3,6 +3,7 @@
 ### Arquitecturas de Software - ARSW
 ## Ejercicio Introducción al paralelismo - Hilos - Caso BlackListSearch
 
+### Integrante: Yeison Steven Barreto Rodriguez
 
 ### Dependencias:
 ####   Lecturas:
