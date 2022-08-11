@@ -6,7 +6,7 @@
 package edu.eci.arsw.threads;
 
 /**
- *
+ * Implementación asíncrona de un hilo
  * @author hcadavid
  * @author Yeison Barreto
  */
