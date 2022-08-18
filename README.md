@@ -83,14 +83,20 @@ La estrategia de paralelismo antes implementada es ineficiente en ciertos casos,
 A partir de lo anterior, implemente la siguiente secuencia de experimentos para realizar las validación de direcciones IP dispersas (por ejemplo 202.24.34.55), tomando los tiempos de ejecución de los mismos (asegúrese de hacerlos en la misma máquina):
 
 1. Un solo hilo.
+   ![1Hilo](/img/1hilo.PNG)
 2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).
+   ![8Hilo](/img/8hilo.PNG)
 3. Tantos hilos como el doble de núcleos de procesamiento.
+   ![16Hilo](/img/16hilo.PNG)
 4. 50 hilos.
+   ![50Hilo](/img/50hilo.PNG)
 5. 100 hilos.
+   ![100Hilo](/img/100hilo.PNG)
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
+![grafica](/img/Grafica.PNG)
 
 **Parte IV - Ejercicio Black List Search**
 
@@ -98,9 +104,15 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
 
+    - **Según la ley de Amdahls dice que para los primeros 50hilos se puede esperar que al duplicar los hilos tambien duplique el performance. Luego de los 400 nucleos la mejora en el performance empieza a ser menospreciable**
+
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
+
+    -**La mejora en el performance para la cantidad de hilos se comportar de manera casi lineal**
+   ![Ley](/img/leyAmdahsl.PNG)
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
+    -**El mejoramiento en el performance tiene en cuenta que tan paralelizabe es el código y cuantos hilos se usaran, por lo cual en teoria no habria diferencia**
 
 
