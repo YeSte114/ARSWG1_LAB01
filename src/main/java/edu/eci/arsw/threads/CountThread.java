@@ -11,24 +11,21 @@ package edu.eci.arsw.threads;
  * @author Yeison Barreto
  */
 public class CountThread extends Thread{
-    private int a;
-    private int b;
+    private int a, b;
 
+    /**
+     * Constructor del Thread
+     * @param a Límite inferior del intervalo
+     * @param b Límite superior del intervalo
+     */
     public CountThread (int a, int b) {
         this.a = a;
         this.b = b;
     }
-
     @Override
     public void run(){
         for (int i = a; i <= b; i++){
             System.out.println(i);
-            try {
-                sleep(10);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
     }
-
 }
